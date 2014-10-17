@@ -28,7 +28,7 @@ gem 'spring'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 #  Debug inspector c APi for call stack navigation.
-gem 'byebug', '~> 3.5.1' 
+gem 'byebug', '~> 3.5.1'
 end
 
 group :production do
@@ -36,6 +36,15 @@ group :production do
 	gem 'pg', '0.17.1'
 	#Run Rails the 12factor way
 	gem 'rails_12factor', '0.0.2'
+end
+
+group :test do
+  #Death to haphazard monkey-patching! Extend Minitest through simple hooks.
+  gem 'minitest-reporters', '1.0.5'
+  #MiniBacktrace allows you to take advantage of the Rails.backtrace_cleaner when using MiniTest. 
+  gem 'mini_backtrace',     '0.1.3'
+  #Guard::Minitest automatically run your tests with Minitest framework (much like autotest)
+  gem 'guard-minitest',     '2.3.1'
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
