@@ -28,8 +28,7 @@ gem 'spring'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 #  Debug inspector c APi for call stack navigation.
-#gem 'byebug', '~> 3.5.1' 
-
+gem 'byebug', '~> 3.5.1' 
 end
 
 group :production do
