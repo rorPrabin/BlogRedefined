@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+ruby "2.0.0"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
 
@@ -28,13 +28,15 @@ gem 'spring'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 #  Debug inspector c APi for call stack navigation.
-gem 'byebug', '~> 3.5.1' 
+#gem 'byebug', '~> 3.5.1' 
 
 end
 
 group :production do
-	gem 'pg'
-	gem 'rails_12factor'
+	# Pg is the Ruby interface to the {PostgreSQL RDBMS}[http://www.postgresql.org/]. It works with {PostgreSQL 8.4 and laterß
+	gem 'pg', '0.17.1'
+	#Run Rails the 12factor way
+	gem 'rails_12factor', '0.0.2'
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
