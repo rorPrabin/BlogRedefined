@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 # It stops the browser's process and prompts Debugs in console.
     # debugger
+    @users = User.all
   end
 
   # GET /users/new
