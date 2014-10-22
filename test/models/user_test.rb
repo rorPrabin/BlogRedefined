@@ -13,12 +13,12 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "name should be present" do
-  	@user.name = ""
+  	@user.name = "a" * 51
   	assert_not @user.valid?
   end
 
   test "email should be present" do
-  	@user.email = "     "
+  	@user.email = "a" * 256
   	assert_not @user.valid?
   end
 
@@ -28,5 +28,12 @@ class UserTest < ActiveSupport::TestCase
   		@user.email = valid_address
   		assert @user.valid?, "#{valid_address.inspect} should be valid"
   	end
+  end
+
+    test "email addresses should be unique" do
+    duplicate_user = @user.dup
+    duplicate_user.email = @user.email.upcase
+    @user.save
+    assert_not duplicate_user.valid?
   end
 end
