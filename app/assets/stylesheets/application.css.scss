@@ -18,7 +18,25 @@
  //abc *= require_self
 @import "bootstrap-sprockets";
 @import "bootstrap";
+/* mixins, variables, etc. */
 
+$gray-medium-light: #eaeaea;
+
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
+/* miscellaneous */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
 // Variables
 $light-gray: #777;
 /* universal */
@@ -63,6 +81,7 @@ p {
   font-size: 1.1em;
   line-height: 1.7em;
 }
+
 /* header */
 
 #logo {
@@ -110,6 +129,7 @@ footer {
     }
   }
 }
+
 // footer {
 //   margin-top: 45px;
 //   padding-top: 5px;

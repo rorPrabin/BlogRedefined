@@ -4,7 +4,7 @@ ruby "2.0.0"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
 # The bcrypt Ruby gem provides a simple wrapper for safely handling passwords.
-gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7', :require => 'bcrypt'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
