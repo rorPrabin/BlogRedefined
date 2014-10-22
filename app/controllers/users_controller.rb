@@ -11,7 +11,8 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
-    debugger
+# It stops the browser's process and prompts Debugs in console.
+    # debugger
   end
 
   # GET /users/new
