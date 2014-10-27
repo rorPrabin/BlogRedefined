@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 	format: { with: VALID_EMAIL_REGEX },
 	uniqueness: { case_sensitive: false }
 	has_secure_password
-	validates :password, length: { minimum: 6 }
+	validates :password, length: { minimum: 6 }, allow_blank: true
 
 # returns the hash digest of the string.
 def User.digest(string)
@@ -32,7 +32,7 @@ end
   	return false if remember_digest.nil?
   	BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
-  
+
 
 # Forgets a user
 def forget
