@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:edit, :update]#, :destroy,:show ]
+  before_action :logged_in_user, only: [:index, :edit, :update]#, :destroy,:show ]
   before_action :correct_user, only: [:edit, :update]
   # GET /users 
   # GET /users.json
   def index
-    @users = User.all
+    # @users = User.all
+    @users = User.paginate(page: params[:page])
   end
 
   # GET /users/1
@@ -25,6 +26,13 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
   end
+#  Returns the Gravatar (http://gravatar.com/) for the given user.
+def gravatar_for(user, options = { size: 50 })
+  gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
+  size = options[:size]
+  gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
+  image_tag(gravatar_url, alt: user.name, class: "gravatar")
+end
 
   # POST /users
   # POST /users.json
