@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'account_activations/edit'
+  default_url_options :host => "localhost:3000"
+
   get 'sessions/new'
 
   # get 'static_pages/home'
@@ -14,6 +17,7 @@ Rails.application.routes.draw do
   delete 'logout' =>  'sessions#destroy'
   resources :microposts
   resources :users
+  resources :account_activations, only: [:edit]
     # root 'welcome#index'
     # root 'application#hello'
   #root 'users#index'
