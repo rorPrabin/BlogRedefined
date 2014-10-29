@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'password_resets/new'
+
+  get 'password_resets/edit'
+
   get 'account_activations/edit'
   default_url_options :host => "localhost:3000"
 
@@ -18,6 +22,7 @@ Rails.application.routes.draw do
   resources :microposts
   resources :users
   resources :account_activations, only: [:edit]
+  resources :password_resets,     only: [:edit, :create, :edit, :update]
     # root 'welcome#index'
     # root 'application#hello'
   #root 'users#index'
