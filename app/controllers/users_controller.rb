@@ -43,7 +43,7 @@ end
     respond_to do |format|
       if @user.save
         @user.send_activation_email
-        UserMailer.account_activation(@user).deliver_now
+        UserMailer.account_activation(@user).deliver
         flash[:info] = "Please check your email to activate your account."
         format.html { redirect_to root_url} #,notice: 'User was successfully created.' }
         #format.json { render :show, status: :created, location: @user }

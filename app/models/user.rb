@@ -42,8 +42,8 @@ end
   end
 
   # Sends activation Email.
-  def sand_activation_email
-  	UserMailer.account_activation(self).deliver_now	
+  def send_activation_email
+  	UserMailer.account_activation(self).deliver
   end
   
   # Sets the password reset attributes.
